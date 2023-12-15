@@ -12,8 +12,9 @@ for row in D:
 
 res = 0
 
+
 def f(line, counts, i, ci, current):
-    if i==len(line):
+    if i == len(line):
         if ci == len(counts) and current == 0:
             return 1
         elif ci == len(counts) - 1 and counts[ci] == current:
@@ -24,13 +25,16 @@ def f(line, counts, i, ci, current):
     for c in [".", "#"]:
         if line[i] == c or line[i] == "?":
             if c == "." and current == 0:
-                ans += f(line, counts, i+1, ci, 0)
-            elif c == "." and current > 0 and ci<len(counts) and counts[ci] == current:
-                ans+= f(line, counts, i+1, ci+1, 0)
+                ans += f(line, counts, i + 1, ci, 0)
+            elif (
+                c == "." and current > 0 and ci < len(counts) and counts[ci] == current
+            ):
+                ans += f(line, counts, i + 1, ci + 1, 0)
             elif c == "#":
-                ans += f(line, counts, i+1, ci, current + 1)
-    
+                ans += f(line, counts, i + 1, ci, current + 1)
+
     return ans
+
 
 for el in F:
     line = el[0]

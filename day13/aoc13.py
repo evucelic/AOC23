@@ -16,19 +16,20 @@ for line in D:
         F.append(tmp)
         tmp = []
 
+
 def check(grid):
     R = len(grid)
     C = len(grid[0])
-    for c in range(C-1):
+    for c in range(C - 1):
         br = 0
         for dc in range(C):
-            left = c-dc
+            left = c - dc
             right = c + 1 + dc
             if 0 <= left < right < C:
                 for r in range(R):
                     if grid[r][left] != grid[r][right]:
-                        br+=1
-        if br == 0: # samo ako su svi isti 
+                        br += 1
+        if br == 0:  # samo ako su svi isti
             return c + 1
     return 0
 
